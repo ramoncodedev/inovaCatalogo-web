@@ -1,0 +1,2 @@
+ALTER TABLE leads
+    ADD COLUMN privacy_policy_accepted BOOLEAN NOT NULL DEFAULT FALSE;
