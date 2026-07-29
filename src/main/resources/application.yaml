@@ -16,6 +16,7 @@ spring:
     show-sql: true
 
 server:
+  port: ${PORT:8080}
   tomcat:
     max-http-header-size: 65536
 
