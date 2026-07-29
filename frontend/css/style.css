@@ -1,0 +1,386 @@
+/* ==========================================================================
+   Variáveis e reset
+   ========================================================================== */
+:root {
+  --purple-900: #241239;
+  --purple-800: #2e1a47;
+  --purple-700: #3d1f5c;
+  --purple-600: #5b2f83;
+  --purple-500: #7b3f9d;
+
+  --label: #43206b;
+  --text-dark: #2b1440;
+  --placeholder: #a89bb4;
+  --border: #b9aec4;
+  --border-focus: #7b3f9d;
+
+  --lime: #cede00;
+  --lime-dark: #bcca00;
+
+  --white: #ffffff;
+  --radius-card: 24px;
+  --radius-input: 10px;
+
+  --container: 1400px;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  font-family: 'Archivo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--white);
+  background: var(--purple-800);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, svg { display: block; max-width: 100%; }
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: var(--purple-700);
+  background-image:
+    radial-gradient(90% 110% at 78% 50%,
+      rgba(139, 74, 176, 0.95) 0%,
+      rgba(108, 56, 143, 0.55) 42%,
+      rgba(58, 30, 86, 0) 74%),
+    linear-gradient(100deg,
+      var(--purple-900) 0%,
+      var(--purple-700) 46%,
+      var(--purple-600) 100%);
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 2;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 72px 40px 200px;
+  display: grid;
+  grid-template-columns: 1fr minmax(360px, 430px);
+  gap: 80px;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* --------------------------------------------------------------------------
+   Coluna esquerda
+   -------------------------------------------------------------------------- */
+.hero__content { max-width: 640px; }
+
+.logo {
+  display: inline-block;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--white);
+  text-decoration: none;
+  margin-bottom: 46px;
+}
+
+.hero__title {
+  margin: 0 0 30px;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.16;
+  letter-spacing: -0.015em;
+}
+
+.hero__subtitle {
+  margin: 0 0 34px;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.hero__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 22px;
+  border-radius: 999px;
+  background: var(--lime);
+  color: var(--purple-800);
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   Card do formulário
+   -------------------------------------------------------------------------- */
+.form-card {
+  background: var(--white);
+  border-radius: var(--radius-card);
+  padding: 34px 32px;
+  box-shadow: 0 24px 60px rgba(20, 8, 35, 0.28);
+  justify-self: end;
+  width: 100%;
+}
+
+.form { display: block; }
+
+.field { margin-bottom: 16px; }
+
+.field__label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--label);
+}
+
+.field__input {
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-input);
+  background: var(--white);
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--text-dark);
+  outline: none;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.field__input::placeholder { color: var(--placeholder); }
+
+.field__input:hover { border-color: #9b8ea8; }
+
+.field__input:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(123, 63, 157, 0.15);
+}
+
+/* Select */
+.select-wrap { position: relative; }
+
+.field__input--select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 44px;
+  color: var(--text-dark);
+  cursor: pointer;
+}
+
+.field__input--select:invalid { color: var(--text-dark); }
+
+.field__input--select optgroup {
+  font-weight: 700;
+  color: var(--label);
+  font-style: normal;
+}
+
+.field__input--select option {
+  font-weight: 400;
+  color: var(--text-dark);
+}
+
+.select-wrap__icon {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  width: 20px;
+  height: 20px;
+  transform: translateY(-50%);
+  color: var(--label);
+  pointer-events: none;
+}
+
+/* Estado de erro */
+.field__input.is-invalid,
+.consent__box.is-invalid {
+  border-color: #d94141;
+}
+
+.field__input.is-invalid:focus {
+  box-shadow: 0 0 0 3px rgba(217, 65, 65, 0.15);
+}
+
+.field__error {
+  display: none;
+  margin-top: 5px;
+  font-size: 0.75rem;
+  color: #d94141;
+}
+
+.field__error.is-visible { display: block; }
+
+/* Checkbox de consentimento */
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin-top: 14px;
+}
+
+.consent__box {
+  flex-shrink: 0;
+  width: 15px;
+  height: 15px;
+  margin: 1px 0 0;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  accent-color: var(--purple-500);
+  cursor: pointer;
+}
+
+.consent__label {
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--label);
+  cursor: pointer;
+}
+
+.consent__label a {
+  color: var(--purple-500);
+  text-decoration: underline;
+}
+
+.consent__label a:hover { color: var(--purple-600); }
+
+/* Botão */
+.btn-submit {
+  position: relative;
+  width: 100%;
+  height: 56px;
+  margin-top: 20px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--lime);
+  color: var(--purple-800);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.18s ease, transform 0.12s ease;
+}
+
+.btn-submit:hover { background: var(--lime-dark); }
+
+.btn-submit:active { transform: translateY(1px); }
+
+.btn-submit:focus-visible {
+  outline: 3px solid rgba(123, 63, 157, 0.45);
+  outline-offset: 2px;
+}
+
+.btn-submit:disabled { cursor: not-allowed; opacity: 0.75; }
+
+.btn-submit__spinner {
+  display: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(43, 20, 64, 0.25);
+  border-top-color: var(--purple-800);
+  border-radius: 50%;
+  margin: 0 auto;
+  animation: spin 0.7s linear infinite;
+}
+
+.btn-submit.is-loading .btn-submit__text { display: none; }
+.btn-submit.is-loading .btn-submit__spinner { display: block; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Feedback */
+.form__feedback {
+  display: none;
+  margin: 14px 0 0;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.form__feedback.is-visible { display: block; }
+.form__feedback.is-success { color: #1e7a4d; }
+.form__feedback.is-error { color: #d94141; }
+
+/* ==========================================================================
+   Ondas do rodapé
+   ========================================================================== */
+.waves {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  line-height: 0;
+  pointer-events: none;
+}
+
+.waves svg {
+  width: 100%;
+  height: 150px;
+}
+
+.waves__layer--1 { fill: rgba(255, 255, 255, 0.14); }
+.waves__layer--2 { fill: rgba(255, 255, 255, 0.30); }
+.waves__layer--3 { fill: rgba(255, 255, 255, 0.62); }
+
+/* ==========================================================================
+   Responsivo
+   ========================================================================== */
+@media (max-width: 1100px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding: 56px 32px 180px;
+    align-items: start;
+  }
+
+  .hero__content { max-width: 100%; }
+
+  .form-card {
+    justify-self: stretch;
+    max-width: 520px;
+  }
+
+  .hero__subtitle br { display: none; }
+}
+
+@media (max-width: 640px) {
+  .hero__inner { padding: 40px 20px 150px; }
+
+  .logo { margin-bottom: 28px; font-size: 22px; }
+
+  .hero__title { font-size: 2rem; }
+
+  .hero__subtitle { font-size: 1.0625rem; }
+
+  .form-card { padding: 26px 20px; border-radius: 18px; }
+
+  .btn-submit { font-size: 0.9375rem; letter-spacing: 0.02em; }
+
+  .waves svg { height: 90px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
