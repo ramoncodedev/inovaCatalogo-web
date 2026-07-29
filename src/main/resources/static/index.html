@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cardápio Digital — Venda mais pelo WhatsApp</title>
+  <meta name="description" content="Cardápio digital, sistema de gestão e integrações com WhatsApp, tudo isso num só lugar!">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <main class="hero">
+    <div class="hero__inner">
+
+      <!-- Coluna esquerda -->
+      <section class="hero__content">
+        <a href="#" class="logo">LOGO</a>
+
+        <h1 class="hero__title">
+          Venda mais pelo WhatsApp com um Cardápio Digital profissional.
+        </h1>
+
+        <p class="hero__subtitle">
+          Cardápio digital, sistema de gestão e<br>
+          integrações com Whatsapp, tudo isso<br>
+          num só lugar!
+        </p>
+
+        <div class="hero__tags">
+          <span class="tag">Gestão</span>
+          <span class="tag">+ Vendas</span>
+        </div>
+      </section>
+
+      <!-- Coluna direita: formulário -->
+      <section class="form-card">
+        <form id="leadForm" class="form" novalidate>
+
+          <div class="field">
+            <label class="field__label" for="nome">Nome</label>
+            <input class="field__input" type="text" id="nome" name="nome"
+                   placeholder="Nome" autocomplete="name" required>
+            <span class="field__error" data-error-for="nome"></span>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="empresa">Empresa</label>
+            <input class="field__input" type="text" id="empresa" name="empresa"
+                   placeholder="Empresa" autocomplete="organization" required>
+            <span class="field__error" data-error-for="empresa"></span>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="email">Email</label>
+            <input class="field__input" type="email" id="email" name="email"
+                   placeholder="Email" autocomplete="email" required>
+            <span class="field__error" data-error-for="email"></span>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="telefone">Telefone</label>
+            <input class="field__input" type="tel" id="telefone" name="telefone"
+                   placeholder="(XX) XXXXX-XXXX" autocomplete="tel"
+                   inputmode="numeric" maxlength="15" required>
+            <span class="field__error" data-error-for="telefone"></span>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="segmento">Qual o seu segmento?</label>
+            <div class="select-wrap">
+              <select class="field__input field__input--select" id="segmento" name="segmento" required>
+                <!-- Os value batem EXATAMENTE com as constantes do enum
+                     BusinessSegment no back (Jackson casa por nome). -->
+                <option value="" selected>Selecionar</option>
+
+                <optgroup label="Alimentação">
+                  <option value="RESTAURANTE">Restaurante</option>
+                  <option value="PIZZARIA">Pizzaria</option>
+                  <option value="HAMBURGUERIA">Hamburgueria</option>
+                  <option value="LANCHONETE">Lanchonete</option>
+                  <option value="PADARIA">Padaria</option>
+                  <option value="CAFETERIA">Cafeteria</option>
+                  <option value="DOCERIA">Doceria</option>
+                </optgroup>
+
+                <optgroup label="Mercado e Distribuição">
+                  <option value="MERCADO">Mercado</option>
+                  <option value="MERCEARIA">Mercearia</option>
+                  <option value="DISTRIBUIDORA">Distribuidora</option>
+                </optgroup>
+
+                <optgroup label="Moda e Acessórios">
+                  <option value="LOJA_DE_ROUPAS">Loja de Roupas</option>
+                  <option value="CALCADOS">Calçados</option>
+                  <option value="ACESSORIOS">Acessórios</option>
+                  <option value="JOALHERIA">Joalheria</option>
+                </optgroup>
+
+                <optgroup label="Beleza e Saúde">
+                  <option value="COSMETICOS">Cosméticos</option>
+                  <option value="PERFUMARIA">Perfumaria</option>
+                  <option value="FARMACIA">Farmácia</option>
+                  <option value="CLINICA">Clínica</option>
+                  <option value="SALAO_DE_BELEZA">Salão de Beleza</option>
+                  <option value="BARBEARIA">Barbearia</option>
+                </optgroup>
+
+                <optgroup label="Automotivo">
+                  <option value="AUTOPECAS">Autopeças</option>
+                  <option value="OFICINA">Oficina Mecânica</option>
+                </optgroup>
+
+                <optgroup label="Casa e Construção">
+                  <option value="MATERIAIS_DE_CONSTRUCAO">Materiais de Construção</option>
+                  <option value="MOVEIS">Móveis</option>
+                  <option value="DECORACAO">Decoração</option>
+                </optgroup>
+
+                <optgroup label="Papelaria e Livraria">
+                  <option value="PAPELARIA">Papelaria</option>
+                  <option value="LIVRARIA">Livraria</option>
+                </optgroup>
+
+                <optgroup label="Tecnologia">
+                  <option value="ELETRONICOS">Eletrônicos</option>
+                  <option value="INFORMATICA">Informática</option>
+                  <option value="ASSISTENCIA_TECNICA">Assistência Técnica</option>
+                </optgroup>
+
+                <optgroup label="Outros">
+                  <option value="PET_SHOP">Pet Shop</option>
+                  <option value="FLORICULTURA">Floricultura</option>
+                  <option value="PRESENTES">Presentes</option>
+                  <option value="ARTESANATO">Artesanato</option>
+                  <option value="AGROPECUARIA">Agropecuária</option>
+                  <option value="OUTRO">Outro</option>
+                </optgroup>
+              </select>
+              <svg class="select-wrap__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor"
+                      stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span class="field__error" data-error-for="segmento"></span>
+          </div>
+
+          <div class="consent">
+            <input type="checkbox" id="privacidade" name="privacidade" class="consent__box" required>
+            <label for="privacidade" class="consent__label">
+              Declaro que li e aceito a
+              <a href="#" target="_blank" rel="noopener">Política de privacidade</a>
+            </label>
+          </div>
+          <span class="field__error" data-error-for="privacidade"></span>
+
+          <button type="submit" class="btn-submit" id="submitBtn">
+            <span class="btn-submit__text">Falar com um especialista</span>
+            <span class="btn-submit__spinner" aria-hidden="true"></span>
+          </button>
+
+          <p class="form__feedback" id="formFeedback" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+    </div>
+
+    <!-- Ondas do rodapé -->
+    <div class="waves" aria-hidden="true">
+      <svg viewBox="0 0 1440 160" preserveAspectRatio="none">
+        <path class="waves__layer waves__layer--1"
+              d="M0,96 C240,32 480,32 720,64 C960,96 1200,128 1440,96 L1440,160 L0,160 Z"></path>
+        <path class="waves__layer waves__layer--2"
+              d="M0,116 C240,52 480,52 720,84 C960,116 1200,148 1440,116 L1440,160 L0,160 Z"></path>
+        <path class="waves__layer waves__layer--3"
+              d="M0,140 C240,80 480,80 720,110 C960,140 1200,168 1440,140 L1440,160 L0,160 Z"></path>
+      </svg>
+    </div>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
