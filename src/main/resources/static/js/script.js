@@ -6,7 +6,7 @@
 
   /* Endpoint da API (Spring Boot).
      Em produção, trocar por uma URL relativa ou pelo domínio real. */
-  var API_BASE_URL = 'https://inovacatalogo.onrender.com/';
+  var API_BASE_URL = 'https://inovacatalogo.onrender.com';
   var API_URL = API_BASE_URL + '/lead';
 
   var form = document.getElementById('leadForm');
